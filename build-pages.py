@@ -18,6 +18,30 @@ OUT = ROOT / "_pages"
 ASSET_DIRS = ["css", "js", "slike"]
 PAGE_DIRS = ["odgusenje-kanalizacije"]
 
+# Prekidač paleta — postoji SAMO na staging kopiji, ne u izvornom kodu.
+STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css">
+<script>
+  (function () {{
+    var p = new URLSearchParams(location.search).get("paleta");
+    if (p) document.documentElement.setAttribute("data-paleta", p);
+  }})();
+</script>
+"""
+
+SWITCH = """<nav class="paleta-switch" aria-label="Izbor palete">
+  <a href="?paleta=petrol">Petrol</a>
+  <a href="?paleta=teget">Teget</a>
+  <a href="?paleta=grafit">Grafit</a>
+</nav>
+<script>
+  (function () {{
+    var p = new URLSearchParams(location.search).get("paleta") || "petrol";
+    var a = document.querySelector('.paleta-switch a[href="?paleta=' + p + '"]');
+    if (a) a.setAttribute("data-active", "");
+  }})();
+</script>
+""".replace("{{", "{").replace("}}", "}")
+
 
 def build(prefix: str) -> pathlib.Path:
     if OUT.exists():
@@ -40,6 +64,8 @@ def build(prefix: str) -> pathlib.Path:
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)
+        html = html.replace("</head>", STAGING_HEAD.format(prefix=prefix) + "</head>")
+        html = html.replace("<body>", "<body>\n" + SWITCH)
         dst.write_text(html, encoding="utf-8")
 
     # prva stranica je ujedno i ulaz dok home ne postoji

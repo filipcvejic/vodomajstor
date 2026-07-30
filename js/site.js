@@ -1,5 +1,4 @@
-/* VodoMajstor Beograd — minimalni JS.
-   Mobilni meni, lightbox za galeriju, blagi ulaz sekcija. Bez biblioteka. */
+/* VodoMajstor Beograd — minimalni JS. Mobilni meni i lightbox. Bez biblioteka. */
 (function () {
   "use strict";
 
@@ -37,24 +36,5 @@
         dialog.close();
       }
     });
-  }
-
-  /* --- Blagi ulaz sekcija --- */
-  var reveals = document.querySelectorAll(".reveal");
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (reveals.length && !reduced && "IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px" });
-
-    reveals.forEach(function (el) { io.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();
