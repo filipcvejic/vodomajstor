@@ -117,6 +117,14 @@ li + li { margin-top: .35em; }
 .sec--dark h2, .sec--dark h3 { color: #fff; }
 .sec--dark a { color: var(--accent); }
 
+.sec__label {
+  display: block; margin-bottom: 10px;
+  color: var(--brand-600);
+  font-size: .79rem; font-weight: 800;
+  letter-spacing: .11em; text-transform: uppercase;
+}
+.sec--dark .sec__label { color: var(--accent); }
+
 .sec__head { max-width: 62ch; margin-bottom: 30px; }
 .sec__head p { color: var(--ink-muted); font-size: 1.04rem; }
 .sec--dark .sec__head p { color: #c6dadd; }
@@ -169,7 +177,12 @@ li + li { margin-top: .35em; }
 
 .site-header { position: sticky; top: 0; z-index: 40; background: var(--brand-900); color: #fff; }
 
-.site-header__bar { display: flex; align-items: center; gap: 16px; min-height: 62px; }
+/* Jedan red na desktopu: logo | navigacija | telefon.
+   Na mobilnom se navigacija prelama u punu širinu ispod. */
+.site-header__bar {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 12px 24px; min-height: 62px;
+}
 
 .brand {
   display: flex; flex-direction: column;
@@ -198,7 +211,7 @@ li + li { margin-top: .35em; }
   color: var(--accent-ink); font-weight: 800; text-decoration: none; white-space: nowrap;
 }
 
-.site-nav { display: none; padding-bottom: 14px; }
+.site-nav { flex-basis: 100%; order: 3; display: none; padding-bottom: 14px; }
 .site-nav[data-open="true"] { display: block; }
 .site-nav ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(255, 255, 255, .15); }
 .site-nav li + li { margin-top: 0; }
@@ -210,12 +223,22 @@ li + li { margin-top: .35em; }
 .site-nav a:hover { color: #fff; }
 .site-nav a[aria-current="page"] { color: var(--accent); }
 
-@media (min-width: 940px) {
+@media (min-width: 1000px) {
   .nav-toggle { display: none; }
   .header-call { display: inline-flex; }
-  .site-nav { display: block; padding-bottom: 0; }
-  .site-nav ul { display: flex; gap: 20px; border: 0; }
-  .site-nav a { padding: 0; border: 0; font-size: .95rem; }
+  .brand { margin-right: 8px; }
+  .site-nav {
+    flex-basis: auto; order: 0;
+    display: block; margin-right: auto; padding-bottom: 0;
+  }
+  .site-nav ul { display: flex; gap: 22px; border: 0; }
+  .site-nav a {
+    padding: 21px 0; border: 0;
+    border-bottom: 3px solid transparent;
+    font-size: .95rem;
+  }
+  .site-nav a:hover { border-bottom-color: rgba(255, 255, 255, .3); }
+  .site-nav a[aria-current="page"] { border-bottom-color: var(--accent); }
 }
 
 /* --- 6. Hero ------------------------------------------------------------- */
@@ -245,22 +268,32 @@ li + li { margin-top: .35em; }
 @media (min-width: 768px) { .hero__sub { font-size: 1.18rem; } }
 .hero .btn-row { margin-top: 26px; }
 
-/* --- 7. Trust traka ------------------------------------------------------ */
+/* --- 7. Traka sa brojevima ----------------------------------------------- */
 
-.trustbar { background: var(--brand-100); border-bottom: 1px solid var(--line); }
-.trustbar ul {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+.stats { background: var(--brand-100); border-bottom: 1px solid var(--line); }
+.stats ul {
+  display: grid; grid-template-columns: repeat(2, 1fr);
   margin: 0; padding: 0; list-style: none;
 }
-.trustbar li {
-  margin: 0; padding: 15px 4px;
-  text-align: center; font-weight: 700; font-size: .92rem;
-  color: var(--brand-800);
+@media (min-width: 768px) { .stats ul { grid-template-columns: repeat(4, 1fr); } }
+
+.stats li {
+  margin: 0; padding: 18px 10px;
+  border-top: 1px solid rgba(0, 0, 0, .07);
 }
+.stats li:nth-child(odd) { border-right: 1px solid rgba(0, 0, 0, .07); }
 @media (min-width: 768px) {
-  .trustbar ul { grid-template-columns: repeat(4, 1fr); }
-  .trustbar li { font-size: .99rem; padding: 19px 8px; }
+  .stats li { padding: 22px 10px; border-top: 0; }
+  .stats li:nth-child(odd) { border-right: 0; }
+  .stats li + li { border-left: 1px solid rgba(0, 0, 0, .07); }
 }
+.stats b {
+  display: block;
+  color: var(--brand-800);
+  font-size: clamp(1.5rem, 4.4vw, 2.05rem); font-weight: 800; letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.stats span { display: block; margin-top: 2px; color: var(--ink-muted); font-size: .9rem; }
 
 /* --- 8. Redovi problem → rešenje ----------------------------------------- */
 
@@ -297,18 +330,35 @@ li + li { margin-top: .35em; }
 }
 .split__media img { width: 100%; border-radius: var(--r); }
 
-/* --- 10. Spisak opreme --------------------------------------------------- */
+/* --- 10. Kartica opreme -------------------------------------------------- */
 
-.spec { margin: 20px 0 0; padding: 0; list-style: none; }
-.spec li {
-  display: grid; gap: 2px 18px;
-  padding-block: 11px;
-  border-top: 1px solid rgba(255, 255, 255, .16);
-  font-size: .96rem;
+.kit {
+  margin-top: 24px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-left: 4px solid var(--accent);
+  background: rgba(0, 0, 0, .16);
 }
-@media (min-width: 620px) { .spec li { grid-template-columns: 11rem 1fr; } }
-.spec b { font-weight: 700; }
-.spec span { color: #b9d4d7; }
+.kit__head { padding: 16px 20px 12px; }
+.kit__head b { display: block; font-size: 1.12rem; letter-spacing: -.01em; }
+.kit__head span { color: #b9d4d7; font-size: .92rem; }
+.kit dl { display: grid; margin: 0; padding: 0 20px 16px; font-size: .95rem; }
+.kit dt { color: #8fb3b8; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; padding-top: 11px; }
+.kit dd { margin: 1px 0 0; }
+@media (min-width: 620px) {
+  .kit dl { grid-template-columns: 9.5rem 1fr; column-gap: 18px; }
+  .kit dt { padding-top: 9px; }
+  .kit dd { padding-top: 9px; }
+}
+
+.rule {
+  display: grid; gap: 10px;
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .18);
+  font-size: .97rem;
+}
+@media (min-width: 620px) { .rule { grid-template-columns: repeat(2, 1fr); gap: 10px 26px; } }
+.rule div b { display: block; color: var(--accent); font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 3px; }
+.rule div span { color: #cfe2e4; }
 
 /* --- 11. Tabela ---------------------------------------------------------- */
 

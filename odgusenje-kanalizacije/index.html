@@ -20,7 +20,7 @@
 
 <a class="visually-hidden" href="#glavni-sadrzaj">Preskoči na sadržaj</a>
 
-<!-- ===== Zaglavlje ===== -->
+<!-- ===== Utility traka ===== -->
 <div class="topbar">
   <div class="wrap">
     <span>Beograd i okolna mesta</span>
@@ -28,6 +28,7 @@
   </div>
 </div>
 
+<!-- ===== Zaglavlje: logo | navigacija | telefon, u jednom redu ===== -->
 <header class="site-header">
   <div class="wrap">
     <div class="site-header__bar">
@@ -36,23 +37,23 @@
         <span>Vodoinstalater Beograd</span>
       </a>
 
+      <nav class="site-nav" id="glavna-navigacija" data-open="false" aria-label="Glavna navigacija">
+        <ul>
+          <li><a href="/odgusenje-kanalizacije/" aria-current="page">Odgušenje</a></li>
+          <li><a href="/hitne-intervencije/">Hitne intervencije</a></li>
+          <li><a href="/detekcija-curenja-vode/">Detekcija curenja</a></li>
+          <li><a href="/vodovodne-instalacije/">Instalacije</a></li>
+          <li><a href="/ugradnja-sanitarija/">Sanitarije</a></li>
+          <li><a href="/adaptacija-kupatila/">Kupatila</a></li>
+        </ul>
+      </nav>
+
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="glavna-navigacija">
         <b aria-hidden="true"></b> Meni
       </button>
 
       <a class="header-call" href="tel:+381658349422">065 8349422</a>
     </div>
-
-    <nav class="site-nav" id="glavna-navigacija" data-open="false" aria-label="Glavna navigacija">
-      <ul>
-        <li><a href="/odgusenje-kanalizacije/" aria-current="page">Odgušenje</a></li>
-        <li><a href="/hitne-intervencije/">Hitne intervencije</a></li>
-        <li><a href="/detekcija-curenja-vode/">Detekcija curenja</a></li>
-        <li><a href="/vodovodne-instalacije/">Instalacije</a></li>
-        <li><a href="/ugradnja-sanitarija/">Sanitarije</a></li>
-        <li><a href="/adaptacija-kupatila/">Adaptacija kupatila</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
 
@@ -86,14 +87,14 @@
     </div>
   </section>
 
-  <!-- ===== 2. Trust traka ===== -->
-  <div class="trustbar">
+  <!-- ===== 2. Traka sa brojevima ===== -->
+  <div class="stats">
     <div class="wrap">
       <ul>
-        <li>Besplatan dolazak</li>
-        <li>Na adresi za 30 minuta</li>
-        <li>10+ godina iskustva</li>
-        <li>Bez skrivenih troškova</li>
+        <li><b>30 min</b><span>na adresi u Beogradu</span></li>
+        <li><b>10+</b><span>godina iskustva</span></li>
+        <li><b>6 meseci</b><span>garancija na rad</span></li>
+        <li><b>Besplatan</b><span>dolazak na adresu</span></li>
       </ul>
     </div>
   </div>
@@ -102,29 +103,16 @@
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
-        <h2>Šta odgušujemo</h2>
+        <span class="sec__label">Šta odgušujemo</span>
+        <h2>Od zapušene sudopere do vertikale u zgradi</h2>
         <p>Radimo u stanovima, kućama i lokalima. Ako niste sigurni gde je zastoj, to je deo posla. Nađemo ga na licu mesta.</p>
       </div>
 
       <div class="rows">
         <div class="rows__item">
-          <h3>Kanalizacija i vertikala</h3>
-          <div>
-            <p>Kada se voda zadržava u više prostorija odjednom, kada se vraća kroz slivnik ili kada susedi imaju isti problem, zastoj nije u vašem odvodu nego dublje u kanalizaciji zgrade. Tu se ulazi kroz revizioni otvor, ne kroz sifon.</p>
-            <ul class="rows__tags">
-              <li>Zapušena kanalizacija u stanu</li>
-              <li>Vertikala</li>
-              <li>Horizontalni razvod</li>
-              <li>Dvorišna kanalizacija</li>
-              <li>Lokali i poslovni prostori</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="rows__item">
           <h3>WC šolja, sudopera i odvod</h3>
           <div>
-            <p>Voda stoji u sudoperi, WC ne povlači nego se diže, odvod u kupatilu sporo otiče ili čujete grgljanje kad pustite vodu na drugom mestu. To su pojedinačni zastoji koje najčešće rešavamo istim izlaskom, kroz postojeći otvor.</p>
+            <p>Pojedinačni zastoj blizu izliva. Najčešće se rešava istim izlaskom, kroz postojeći otvor.</p>
             <ul class="rows__tags">
               <li>WC šolja</li>
               <li>Sudopera u kuhinji</li>
@@ -137,14 +125,26 @@
         </div>
 
         <div class="rows__item">
-          <h3>Tvrdokorna i ponovljena zapušenja</h3>
+          <h3>Kanalizacija i vertikala</h3>
           <div>
-            <p>Naslage masnoće, kamenca i mulja koje se godinama talože po zidovima cevi. Sajla kroz njih napravi prolaz, pa voda krene, ali se za mesec ili dva sve vrati. Tu ide mašinsko odgušenje vodom pod pritiskom, koje naslagu skida.</p>
+            <p>Voda se zadržava u više prostorija odjednom ili se vraća kroz slivnik. Zastoj je dublje u kanalizaciji zgrade, ulazi se kroz revizioni otvor.</p>
             <ul class="rows__tags">
-              <li>Zapušenja koja se vraćaju</li>
+              <li>Vertikala</li>
+              <li>Horizontalni razvod</li>
+              <li>Dvorišna kanalizacija</li>
+              <li>Lokali i poslovni prostori</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rows__item">
+          <h3>Zapušenja koja se vraćaju</h3>
+          <div>
+            <p>Naslage masnoće, kamenca i mulja po zidovima cevi. Sajla kroz njih napravi prolaz, ali se za mesec ili dva sve vrati. Ovde ide <a href="#masinsko">mašinsko odgušenje</a>.</p>
+            <ul class="rows__tags">
               <li>Zamašćeni odvodi</li>
-              <li>Ugostiteljski objekti</li>
-              <li><a href="#masinsko">Mašinsko odgušenje</a></li>
+              <li>Kuhinje lokala</li>
+              <li>Stare cevi</li>
             </ul>
           </div>
         </div>
@@ -166,131 +166,88 @@
         </div>
 
         <div>
-          <h2>Mašinsko odgušenje WOMA opremom</h2>
+          <span class="sec__label">Mašinsko odgušenje</span>
+          <h2>WOMA oprema za tvrdokorna zapušenja</h2>
           <p>
-            Mašinsko odgušenje je čišćenje cevi mlazom vode pod visokim pritiskom. Kroz cev se
-            uvlači crevo sa mlaznicom koja radi unazad, pa mlaz istovremeno vuče crevo napred
-            i spira naslagu sa zidova, od kraja ka izlazu. Otpad ide niz cev, ne u prostoriju.
-          </p>
-          <p>
-            WOMA je oprema kojom to radimo. Za razliku od sajle, koja mehanički probija zastoj,
-            mlaz pod pritiskom vraća cevi njihov pun presek.
+            Kroz cev se uvlači crevo sa mlaznicom koja radi unazad. Mlaz vuče crevo napred i spira
+            naslagu sa zidova, od kraja ka izlazu. Sajla zastoj probije, pritisak ga skine.
           </p>
 
-          <ul class="spec">
-            <li><b>Metod</b> <span>voda pod visokim pritiskom, bez hemije</span></li>
-            <li><b>Mlaznice</b> <span>biramo prema prečniku cevi i vrsti naslage</span></li>
-            <li><b>Pristup</b> <span>kroz revizioni otvor, slivnik ili izliv, bez razbijanja</span></li>
-            <li><b>Gde radi</b> <span>vertikale, horizontalni razvod, dvorišna kanalizacija</span></li>
-            <li><b>Kad ima smisla</b> <span>masnoća, kamenac, mulj, ponovljeni zastoji</span></li>
-          </ul>
+          <div class="kit">
+            <div class="kit__head">
+              <b>WOMA</b>
+              <span>voda pod visokim pritiskom, bez hemije</span>
+            </div>
+            <dl>
+              <dt>Pristup</dt>
+              <dd>revizioni otvor, slivnik ili izliv, bez razbijanja</dd>
+              <dt>Mlaznice</dt>
+              <dd>biramo prema prečniku cevi i vrsti naslage</dd>
+              <dt>Gde radi</dt>
+              <dd>vertikale, horizontalni razvod, dvorišna kanalizacija</dd>
+            </dl>
+          </div>
 
-          <p style="margin-top:20px"><a href="tel:+381658349422">Pozovite 065 8349422</a> i opišite problem. Reći ćemo vam da li je slučaj za sajlu ili za mašinu.</p>
+          <div class="rule">
+            <div>
+              <b>Sajla</b>
+              <span>Zastoji blizu izliva: WC, sudopera, lavabo, kada, slivnik.</span>
+            </div>
+            <div>
+              <b>Voda pod pritiskom</b>
+              <span>Vertikale, zamašćeni odvodi i zastoji koji se vraćaju.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 5. Koji metod za koji slučaj ===== -->
-  <section class="sec sec--soft">
-    <div class="wrap">
-      <div class="sec__head">
-        <h2>Koji metod ide na koji zastoj</h2>
-        <p>Metod se bira na licu mesta, prema tome gde je zastoj i šta ga je napravilo. Nema smisla dovoziti mašinu na zapušen sifon, ni terati sajlu kroz zamašćenu vertikalu.</p>
-      </div>
-
-      <div class="table-scroll">
-        <table>
-          <caption>Orijentaciono. Konačnu procenu dajemo posle pregleda na licu mesta.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Slučaj</th>
-              <th scope="col">Metod</th>
-              <th scope="col">Zašto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">WC šolja, sudopera, lavabo</th>
-              <td>Sajla</td>
-              <td>Zastoj je blizu izliva i najčešće ga pravi predmet, kosa ili nataloženi otpad</td>
-            </tr>
-            <tr>
-              <th scope="row">Kada, tuš, podni slivnik</th>
-              <td>Sajla</td>
-              <td>Kratak put do sifona, radi se kroz postojeći otvor</td>
-            </tr>
-            <tr>
-              <th scope="row">Vertikala u zgradi</th>
-              <td>Voda pod pritiskom</td>
-              <td>Dužina i prečnik cevi traže ispiranje celog preseka, ne samo prolaz</td>
-            </tr>
-            <tr>
-              <th scope="row">Zamašćen odvod, kuhinja lokala</th>
-              <td>Voda pod pritiskom</td>
-              <td>Masnoća se lepi po zidovima cevi i sajla je samo probije</td>
-            </tr>
-            <tr>
-              <th scope="row">Zastoj koji se stalno vraća</th>
-              <td>Voda pod pritiskom, po potrebi kamera</td>
-              <td>Ponavljanje znači naslagu ili oštećenje cevi, a ne slučajan predmet</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="lede" style="margin-top:22px; max-width:62ch;">
-        Ako se posle odgušenja pokaže da je uzrok u samoj cevi, na primer pukotina, ulegnuće ili
-        prodor korenja, cev se pregleda kamerom da se vidi tačno stanje pre bilo kakvog daljeg posla.
-        To radimo u okviru <a href="/detekcija-curenja-vode/">detekcije i snimanja cevi kamerom</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== 6. Šta ne raditi ===== -->
+  <!-- ===== 5. Šta ne raditi ===== -->
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
-        <h2>Šta ne raditi dok čekate majstora</h2>
-        <p>Većina štete koju vidimo na terenu nije od samog zapušenja, nego od pokušaja da se ono reši na brzinu.</p>
+        <span class="sec__label">Dok čekate majstora</span>
+        <h2>Četiri stvari koje samo pogoršavaju stvar</h2>
+        <p>Većina štete koju vidimo na terenu nije od zapušenja, nego od pokušaja da se reši na brzinu.</p>
       </div>
 
       <div class="warn">
         <div class="warn__item">
-          <h3>Ne sipajte sredstva za odgušenje jedno na drugo</h3>
-          <p>Kiselinska i bazna sredstva u istoj cevi reaguju i greju se. Na starijim PVC cevima to ume da napravi deformaciju, a kod nas se posle radi u vodi punoj hemije.</p>
+          <h3>Ne mešajte sredstva za odgušenje</h3>
+          <p>Kiselinsko i bazno u istoj cevi reaguju i greju se. Na starijim PVC cevima to ume da napravi deformaciju.</p>
         </div>
 
         <div class="warn__item">
           <h3>Ne puštajte vodu da proverite</h3>
-          <p>Ako odvod ne prima, svaka nova količina vode ostaje u cevi ili se vraća negde niže. Kod zapušene vertikale to najčešće završi kod suseda ispod vas.</p>
+          <p>Ako odvod ne prima, svaka nova količina ostaje u cevi ili izlazi negde niže. Kod vertikale to najčešće završi kod suseda ispod.</p>
         </div>
 
         <div class="warn__item">
           <h3>Ne forsirajte pumpom ako se voda vraća iz slivnika</h3>
-          <p>Vraćanje kroz slivnik znači da je zastoj ispod vašeg stana. Pumpa tu ne pomaže, samo prebacuje vodu iz jednog otvora u drugi.</p>
+          <p>Vraćanje kroz slivnik znači da je zastoj ispod vas. Pumpa tu samo prebacuje vodu iz jednog otvora u drugi.</p>
         </div>
 
         <div class="warn__item">
           <h3>Ne rasklapajte sifon ako je odvod pun</h3>
-          <p>Sve što stoji u cevi izaći će na pod. Ako je sifon već rasklopljen i ne ide nazad kako treba, recite nam to kad zovete da ponesemo zaptivke.</p>
+          <p>Sve što stoji u cevi izaći će na pod. Ako je već rasklopljen, recite nam kad zovete da ponesemo zaptivke.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 7. Kako izgleda izlazak ===== -->
+  <!-- ===== 6. Kako izgleda izlazak ===== -->
   <section class="sec sec--soft" id="kako-radimo">
     <div class="wrap">
       <div class="sec__head">
-        <h2>Kako izgleda izlazak</h2>
-        <p>Četiri koraka, bez iznenađenja na kraju.</p>
+        <span class="sec__label">Kako radimo</span>
+        <h2>Četiri koraka, bez iznenađenja na kraju</h2>
       </div>
 
       <ol class="steps">
         <li>
           <h3>Pozovete i opišete</h3>
-          <p>Kažete šta ne otiče, od kada i da li se voda negde vraća. Već iz opisa se najčešće vidi da li je za sajlu ili za mašinu.</p>
+          <p>Kažete šta ne otiče, od kada i da li se voda negde vraća. Već iz opisa se vidi da li je za sajlu ili za mašinu.</p>
         </li>
         <li>
           <h3>Izlazimo na adresu</h3>
@@ -298,7 +255,7 @@
         </li>
         <li>
           <h3>Kažemo cenu</h3>
-          <p>Pogledamo, utvrdimo gde je zastoj i kažemo cenu pre početka rada. Vi odlučujete da li idemo dalje.</p>
+          <p>Utvrdimo gde je zastoj i kažemo cenu pre početka rada. Vi odlučujete da li idemo dalje.</p>
         </li>
         <li>
           <h3>Odgušimo i počistimo</h3>
@@ -308,12 +265,13 @@
     </div>
   </section>
 
-  <!-- ===== 8. Sa terena ===== -->
+  <!-- ===== 7. Sa terena ===== -->
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
+        <span class="sec__label">Sa terena</span>
         <h2>Radimo čisto, bez nereda u stanu</h2>
-        <p>Odgušenje ume da bude prljav posao, zato prostor pripremimo pre nego što počnemo. Prljavštinu i otpad iz cevi iznosimo mi, ne ostaje vam da čistite za nama.</p>
+        <p>Prostor pripremimo pre nego što počnemo. Prljavštinu i otpad iz cevi iznosimo mi, ne ostaje vam da čistite za nama.</p>
       </div>
 
       <ul class="gallery" data-gallery>
@@ -355,11 +313,12 @@
     </div>
   </section>
 
-  <!-- ===== 9. FAQ ===== -->
+  <!-- ===== 8. FAQ ===== -->
   <section class="sec sec--soft">
     <div class="wrap">
       <div class="sec__head">
-        <h2>Česta pitanja</h2>
+        <span class="sec__label">Česta pitanja</span>
+        <h2>Ono što nas najčešće pitaju</h2>
       </div>
 
       <div class="faq">
@@ -371,9 +330,31 @@
         </details>
 
         <details>
+          <summary>Kako birate metod, sajlu ili mašinu?</summary>
+          <div class="faq__a">
+            <p>Prema tome gde je zastoj i šta ga je napravilo.</p>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr><th scope="col">Slučaj</th><th scope="col">Metod</th><th scope="col">Zašto</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">WC, sudopera, lavabo</th><td>Sajla</td><td>Zastoj je blizu izliva, najčešće predmet ili nataloženi otpad</td></tr>
+                  <tr><th scope="row">Kada, tuš, slivnik</th><td>Sajla</td><td>Kratak put do sifona, radi se kroz postojeći otvor</td></tr>
+                  <tr><th scope="row">Vertikala u zgradi</th><td>Voda pod pritiskom</td><td>Dužina i prečnik traže ispiranje celog preseka</td></tr>
+                  <tr><th scope="row">Zamašćen odvod lokala</th><td>Voda pod pritiskom</td><td>Masnoća se lepi po zidovima, sajla je samo probije</td></tr>
+                  <tr><th scope="row">Zastoj koji se vraća</th><td>Pritisak, po potrebi kamera</td><td>Ponavljanje znači naslagu ili oštećenje cevi</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:12px">Ako se pokaže da je uzrok u samoj cevi, na primer pukotina, ulegnuće ili korenje, cev se pregleda kamerom u okviru <a href="/detekcija-curenja-vode/">detekcije i snimanja cevi</a>.</p>
+          </div>
+        </details>
+
+        <details>
           <summary>Šta pokriva garancija od 6 meseci?</summary>
           <div class="faq__a">
-            <p>Garancija pokriva naš rad. Ako se isti odvod, na istom mestu i iz istog uzroka, ponovo zapuši u roku od šest meseci, izlazimo ponovo bez naplate. Garancija ne pokriva novo zapušenje koje je napravljeno naknadno, na primer bačene vlažne maramice ili masnoća iz kuhinje, niti kvar na samoj cevi ako je ona oštećena. Ako pri odgušenju vidimo da je cev u lošem stanju, reći ćemo vam odmah, da znate na čemu ste.</p>
+            <p>Garancija pokriva naš rad. Ako se isti odvod, na istom mestu i iz istog uzroka, ponovo zapuši u roku od šest meseci, izlazimo ponovo bez naplate. Ne pokriva novo zapušenje napravljeno naknadno, na primer bačene vlažne maramice ili masnoću iz kuhinje, niti kvar na samoj cevi ako je oštećena. Ako pri odgušenju vidimo da je cev u lošem stanju, reći ćemo vam odmah, da znate na čemu ste.</p>
           </div>
         </details>
 
@@ -399,13 +380,6 @@
         </details>
 
         <details>
-          <summary>Šta ako sajla ne pomogne?</summary>
-          <div class="faq__a">
-            <p>Prelazimo na mašinsko odgušenje WOMA opremom, vodom pod pritiskom. Ako ni to ne reši trajno, znači da je problem u samoj cevi. Tada se cev pregleda kamerom da se vidi da li je u pitanju pukotina, ulegnuće ili korenje, pa se tek onda odlučuje šta dalje.</p>
-          </div>
-        </details>
-
-        <details>
           <summary>Ko plaća odgušenje vertikale u zgradi?</summary>
           <div class="faq__a">
             <p>Vertikala je zajednička instalacija i po pravilu ide preko skupštine stanara, dok je odvod unutar stana vaš. Mi radimo i jedno i drugo. Kad izađemo, prvo utvrdimo gde je zastoj, pa vam kažemo da li je u pitanju vaš deo ili zajednički, da znate s kim to dalje rešavate.</p>
@@ -422,12 +396,13 @@
     </div>
   </section>
 
-  <!-- ===== 10. Gde radimo ===== -->
+  <!-- ===== 9. Gde radimo ===== -->
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
-        <h2>Gde izlazimo</h2>
-        <p>Ceo Beograd i okolna mesta. Ako vaš deo grada nije na spisku, svejedno pozovite.</p>
+        <span class="sec__label">Gde izlazimo</span>
+        <h2>Ceo Beograd i okolna mesta</h2>
+        <p>Ako vaš deo grada nije na spisku, svejedno pozovite.</p>
       </div>
 
       <ul class="chips">
@@ -442,20 +417,16 @@
         <li><span>Vračar</span></li>
         <li><span>Mirijevo</span></li>
         <li><span>Karaburma</span></li>
-        <li><span>Konjarnik</span></li>
         <li><span>Banovo brdo</span></li>
         <li><span>Žarkovo</span></li>
         <li><span>Železnik</span></li>
         <li><span>Batajnica</span></li>
         <li><span>Borča</span></li>
-        <li><span>Krnjača</span></li>
-        <li><span>Petlovo brdo</span></li>
-        <li><span>Miljakovac</span></li>
       </ul>
     </div>
   </section>
 
-  <!-- ===== 11. Završni CTA ===== -->
+  <!-- ===== 10. Završni CTA ===== -->
   <section class="band">
     <div class="wrap">
       <div class="band__inner">
@@ -553,6 +524,11 @@
         },
         {
           "@type": "Question",
+          "name": "Kako birate metod, sajlu ili mašinu?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Prema tome gde je zastoj i šta ga je napravilo. Sajla ide na zastoje blizu izliva: WC, sudopera, lavabo, kada, slivnik. Voda pod pritiskom ide na vertikale, zamašćene odvode i zastoje koji se vraćaju. Ako se pokaže da je uzrok u samoj cevi, cev se pregleda kamerom." }
+        },
+        {
+          "@type": "Question",
           "name": "Šta pokriva garancija od 6 meseci?",
           "acceptedAnswer": { "@type": "Answer", "text": "Garancija pokriva naš rad. Ako se isti odvod, na istom mestu i iz istog uzroka, ponovo zapuši u roku od šest meseci, izlazimo ponovo bez naplate. Ne pokriva novo zapušenje napravljeno naknadno, niti kvar na samoj cevi ako je oštećena." }
         },
@@ -570,11 +546,6 @@
           "@type": "Question",
           "name": "Da li se pri odgušenju razbijaju pločice?",
           "acceptedAnswer": { "@type": "Answer", "text": "U najvećem broju slučajeva ne. Radi se kroz postojeće otvore: slivnik, revizioni otvor, WC šolju ili sifon. Ako se pokaže da je zastoj na mestu kojem se drugačije ne može prići, reći ćemo vam to pre nego što bilo šta uradimo." }
-        },
-        {
-          "@type": "Question",
-          "name": "Šta ako sajla ne pomogne?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Prelazimo na mašinsko odgušenje WOMA opremom, vodom pod pritiskom. Ako ni to ne reši trajno, cev se pregleda kamerom da se vidi da li je u pitanju pukotina, ulegnuće ili korenje." }
         },
         {
           "@type": "Question",
