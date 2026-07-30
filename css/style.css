@@ -223,7 +223,29 @@ li + li { margin-top: .35em; }
 .site-nav a:hover { color: #fff; }
 .site-nav a[aria-current="page"] { color: var(--accent); }
 
-@media (min-width: 1000px) {
+/* Podmeni */
+.sub-toggle {
+  display: flex; align-items: center; gap: 7px;
+  width: 100%; padding: 13px 2px;
+  background: none; border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  color: #dceaec; font: inherit; font-weight: 600; text-align: left;
+  cursor: pointer;
+}
+.sub-toggle::after {
+  content: ""; margin-left: auto;
+  width: 8px; height: 8px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+.sub-toggle[aria-expanded="true"]::after { transform: rotate(-135deg) translate(-2px, -2px); }
+
+.sub { display: none; padding: 0 0 6px 14px; }
+.sub-toggle[aria-expanded="true"] + .sub { display: block; }
+.sub a { font-weight: 500; font-size: .93rem; opacity: .85; }
+.sub em { display: none; }
+
+@media (min-width: 1040px) {
   .nav-toggle { display: none; }
   .header-call { display: inline-flex; }
   .brand { margin-right: 8px; }
@@ -231,14 +253,92 @@ li + li { margin-top: .35em; }
     flex-basis: auto; order: 0;
     display: block; margin-right: auto; padding-bottom: 0;
   }
-  .site-nav ul { display: flex; gap: 22px; border: 0; }
-  .site-nav a {
-    padding: 21px 0; border: 0;
+  .site-nav > ul { display: flex; gap: 20px; border: 0; }
+  .site-nav > ul > li { position: relative; }
+  .site-nav > ul > li > a,
+  .sub-toggle {
+    width: auto; padding: 21px 0; border: 0;
     border-bottom: 3px solid transparent;
-    font-size: .95rem;
+    font-size: .94rem;
   }
-  .site-nav a:hover { border-bottom-color: rgba(255, 255, 255, .3); }
+  .site-nav > ul > li > a:hover,
+  .sub-toggle:hover { border-bottom-color: rgba(255, 255, 255, .3); }
   .site-nav a[aria-current="page"] { border-bottom-color: var(--accent); }
+  .sub-toggle::after { margin-left: 0; width: 6px; height: 6px; }
+
+  /* dropdown */
+  .sub {
+    position: absolute; top: 100%; left: -16px;
+    display: block; visibility: hidden; opacity: 0;
+    width: 20rem; padding: 8px;
+    background: var(--brand-800);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: var(--r);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+    transition: opacity .12s;
+  }
+  .site-nav li:hover > .sub,
+  .site-nav li:focus-within > .sub,
+  .sub-toggle[aria-expanded="true"] + .sub { visibility: visible; opacity: 1; }
+
+  .sub li + li { margin-top: 2px; }
+  .sub a {
+    display: block; padding: 9px 12px; border-radius: 5px;
+    font-size: .93rem; font-weight: 600; opacity: 1; border: 0;
+  }
+  .sub a:hover { background: rgba(255, 255, 255, .09); }
+  .sub em {
+    display: block; margin-top: 1px;
+    color: #93b6bb; font-style: normal; font-size: .8rem; font-weight: 400;
+  }
+  .sub__group {
+    padding: 10px 12px 4px;
+    color: var(--accent);
+    font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  }
+  .sub__cta {
+    margin-top: 6px; padding: 12px;
+    background: rgba(0, 0, 0, .28);
+    border-radius: 5px;
+  }
+  .sub__cta b { display: block; font-size: .9rem; }
+  .sub__cta span { display: block; margin-bottom: 8px; color: #93b6bb; font-size: .8rem; }
+  .sub__cta a { background: var(--accent); color: var(--accent-ink); text-align: center; }
+  .sub__cta a:hover { background: var(--accent-hover); }
+}
+
+/* --- 5b. Traka koja klizi ------------------------------------------------ */
+
+.marquee {
+  overflow: hidden;
+  background: var(--brand-800);
+  border-block: 1px solid rgba(255, 255, 255, .1);
+  color: #cfe2e4;
+  font-size: .9rem; font-weight: 600;
+}
+.marquee__track {
+  display: flex; width: max-content;
+  animation: marquee 42s linear infinite;
+}
+.marquee ul {
+  display: flex; align-items: center; gap: 0;
+  margin: 0; padding: 0; list-style: none;
+}
+.marquee li {
+  margin: 0; padding: 11px 22px;
+  white-space: nowrap;
+}
+.marquee li::before {
+  content: ""; display: inline-block;
+  width: 5px; height: 5px; margin-right: 12px; vertical-align: middle;
+  border-radius: 50%; background: var(--accent);
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; }
+  .marquee__track { animation: none; }
 }
 
 /* --- 6. Hero ------------------------------------------------------------- */
@@ -517,3 +617,64 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 }
 .call-dock .btn { flex: 1; min-height: 52px; }
 @media (min-width: 940px) { .call-dock { display: none; } }
+
+/* --- 20. Znaci upozorenja ------------------------------------------------ */
+
+.signs {
+  counter-reset: sign;
+  display: grid; gap: 1px;
+  margin: 0; padding: 0; list-style: none;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+@media (min-width: 700px) { .signs { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .signs { grid-template-columns: repeat(3, 1fr); } }
+
+.signs li {
+  display: flex; align-items: flex-start; gap: 13px;
+  margin: 0; padding: 16px 18px;
+  background: var(--bg);
+  counter-increment: sign;
+  font-size: .97rem;
+}
+.signs li::before {
+  content: counter(sign);
+  flex: none;
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--brand-800); color: #fff;
+  font-size: .82rem; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.signs b { display: block; }
+.signs span { color: var(--ink-muted); font-size: .91rem; }
+
+/* --- 21. Uža CTA traka --------------------------------------------------- */
+
+.cta-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px;
+  padding: 22px 24px;
+  background: var(--brand-100);
+  border-left: 4px solid var(--accent);
+}
+.cta-strip p { margin: 0; flex: 1 1 22rem; font-weight: 600; color: var(--brand-800); }
+.cta-strip .btn { min-height: 50px; }
+
+/* --- 22. Kartice ostalih usluga ------------------------------------------ */
+
+.cards { display: grid; gap: 14px; }
+@media (min-width: 700px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .cards { grid-template-columns: repeat(4, 1fr); } }
+
+.cards a {
+  display: block; height: 100%; padding: 18px 20px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  text-decoration: none; color: inherit;
+  transition: border-color .15s, box-shadow .15s;
+}
+.cards a:hover { border-color: var(--brand-600); box-shadow: var(--shadow); }
+.cards b { display: block; margin-bottom: 3px; color: var(--brand-800); font-size: 1.02rem; }
+.cards span { color: var(--ink-muted); font-size: .91rem; }

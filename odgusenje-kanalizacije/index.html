@@ -39,12 +39,37 @@
 
       <nav class="site-nav" id="glavna-navigacija" data-open="false" aria-label="Glavna navigacija">
         <ul>
-          <li><a href="/odgusenje-kanalizacije/" aria-current="page">Odgušenje</a></li>
+          <li><a href="/">Početna</a></li>
+
+          <li>
+            <button class="sub-toggle" type="button" aria-expanded="false">Usluge</button>
+            <ul class="sub">
+              <li class="sub__group">Hitno i odgušenje</li>
+              <li><a href="/odgusenje-kanalizacije/" aria-current="page">Odgušenje kanalizacije<em>WC, sudopera, odvod, mašinsko</em></a></li>
+              <li><a href="/hitne-intervencije/">Hitne intervencije<em>Pukla cev, poplava, havarija</em></a></li>
+
+              <li class="sub__group">Dijagnostika</li>
+              <li><a href="/detekcija-curenja-vode/">Detekcija curenja<em>Snimanje cevi kamerom</em></a></li>
+
+              <li class="sub__group">Radovi</li>
+              <li><a href="/vodovodne-instalacije/">Vodovodne instalacije<em>Zamena cevi, razvod vode</em></a></li>
+              <li><a href="/ugradnja-sanitarija/">Ugradnja sanitarija<em>WC šolja, kada, tuš kabina</em></a></li>
+              <li><a href="/adaptacija-kupatila/">Adaptacija kupatila<em>Kompletno, ključ u ruke</em></a></li>
+              <li><a href="/sitne-popravke/">Sitne popravke<em>Slavine, ventili, vodokotlići</em></a></li>
+
+              <li class="sub__cta">
+                <b>Ne znate koga da zovete?</b>
+                <span>Opišite problem, kažemo vam šta treba.</span>
+                <a href="tel:+381658349422">065 8349422</a>
+              </li>
+            </ul>
+          </li>
+
           <li><a href="/hitne-intervencije/">Hitne intervencije</a></li>
-          <li><a href="/detekcija-curenja-vode/">Detekcija curenja</a></li>
-          <li><a href="/vodovodne-instalacije/">Instalacije</a></li>
-          <li><a href="/ugradnja-sanitarija/">Sanitarije</a></li>
-          <li><a href="/adaptacija-kupatila/">Kupatila</a></li>
+          <!-- Lokacije: dropdown se dodaje kad budu gotove lokacijske stranice (DKI).
+               Do tada vodi na sekciju sa delovima grada. -->
+          <li><a href="#gde-izlazimo">Lokacije</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -87,7 +112,12 @@
     </div>
   </section>
 
-  <!-- ===== 2. Traka sa brojevima ===== -->
+  <!-- ===== Traka koja klizi ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track"><ul><li>Odgušenje kanalizacije</li><li>Otpušavanje WC šolje</li><li>Odgušenje sudopere i lavaboa</li><li>Mašinsko odgušenje WOMA opremom</li><li>Snimanje cevi kamerom</li><li>Na adresi za 30 minuta</li><li>Besplatan dolazak</li><li>Garancija 6 meseci</li><li>Za stanove, kuće i lokale</li></ul><ul><li>Odgušenje kanalizacije</li><li>Otpušavanje WC šolje</li><li>Odgušenje sudopere i lavaboa</li><li>Mašinsko odgušenje WOMA opremom</li><li>Snimanje cevi kamerom</li><li>Na adresi za 30 minuta</li><li>Besplatan dolazak</li><li>Garancija 6 meseci</li><li>Za stanove, kuće i lokale</li></ul></div>
+  </div>
+
+  <!-- ===== Traka sa brojevima ===== -->
   <div class="stats">
     <div class="wrap">
       <ul>
@@ -152,7 +182,27 @@
     </div>
   </section>
 
-  <!-- ===== 4. Mašinsko odgušenje / WOMA ===== -->
+  <!-- ===== Znaci upozorenja ===== -->
+  <section class="sec sec--soft">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="sec__label">Kad je vreme da zovete</span>
+        <h2>Šest znakova da odvod ide ka potpunom zastoju</h2>
+        <p>Zapušenje retko dolazi odjednom. Skoro uvek se najavi, i tada se rešava brže i jeftinije nego kad voda stane.</p>
+      </div>
+
+      <ol class="signs">
+        <li><div><b>Voda sporo otiče</b><span>Lavabo ili kada se prazne duže nego ranije</span></div></li>
+        <li><div><b>Grgljanje u odvodu</b><span>Vazduh se probija kroz nešto što sužava cev</span></div></li>
+        <li><div><b>Miris iz odvoda</b><span>Otpad se zadržava u sifonu ili cevi</span></div></li>
+        <li><div><b>Voda se vraća</b><span>Kroz slivnik, tuš kabinu ili WC šolju</span></div></li>
+        <li><div><b>Više odvoda odjednom</b><span>Znak da zastoj nije kod vas nego u vertikali</span></div></li>
+        <li><div><b>Zastoj se ponavlja</b><span>Naslaga koju sajla probije, ali ne skine</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Mašinsko odgušenje / WOMA ===== -->
   <section class="sec sec--dark" id="masinsko">
     <div class="wrap">
       <div class="split">
@@ -233,10 +283,15 @@
           <p>Sve što stoji u cevi izaći će na pod. Ako je već rasklopljen, recite nam kad zovete da ponesemo zaptivke.</p>
         </div>
       </div>
+
+      <div class="cta-strip" style="margin-top:34px">
+        <p>Ne komplikujte. Opišite šta se dešava i izlazimo.</p>
+        <a class="btn btn--call" href="tel:+381658349422">Pozovite 065 8349422</a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== 6. Kako izgleda izlazak ===== -->
+  <!-- ===== Kako izgleda izlazak ===== -->
   <section class="sec sec--soft" id="kako-radimo">
     <div class="wrap">
       <div class="sec__head">
@@ -396,8 +451,8 @@
     </div>
   </section>
 
-  <!-- ===== 9. Gde radimo ===== -->
-  <section class="sec">
+  <!-- ===== Gde radimo ===== -->
+  <section class="sec" id="gde-izlazimo">
     <div class="wrap">
       <div class="sec__head">
         <span class="sec__label">Gde izlazimo</span>
@@ -426,7 +481,24 @@
     </div>
   </section>
 
-  <!-- ===== 10. Završni CTA ===== -->
+  <!-- ===== Ostale usluge ===== -->
+  <section class="sec sec--soft">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="sec__label">Ostale usluge</span>
+        <h2>Ako problem nije zapušenje</h2>
+      </div>
+
+      <div class="cards">
+        <a href="/hitne-intervencije/"><b>Hitne intervencije</b><span>Pukla cev, poplava, havarija u kupatilu</span></a>
+        <a href="/detekcija-curenja-vode/"><b>Detekcija curenja</b><span>Nalazimo curenje i snimamo cevi kamerom</span></a>
+        <a href="/vodovodne-instalacije/"><b>Vodovodne instalacije</b><span>Zamena cevi, ventila i razvod vode</span></a>
+        <a href="/ugradnja-sanitarija/"><b>Ugradnja sanitarija</b><span>WC šolja, lavabo, kada, tuš kabina</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Završni CTA ===== -->
   <section class="band">
     <div class="wrap">
       <div class="band__inner">

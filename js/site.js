@@ -14,6 +14,26 @@
     });
   }
 
+  /* --- Podmeni u navigaciji --- */
+  var subs = document.querySelectorAll(".sub-toggle");
+
+  Array.prototype.forEach.call(subs, function (btn) {
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      Array.prototype.forEach.call(subs, function (other) {
+        other.setAttribute("aria-expanded", "false");
+      });
+      btn.setAttribute("aria-expanded", String(!open));
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    Array.prototype.forEach.call(subs, function (btn) {
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+
   /* --- Lightbox galerije (nativni <dialog>) --- */
   var gallery = document.querySelector("[data-gallery]");
   var dialog = document.getElementById("lightbox");
