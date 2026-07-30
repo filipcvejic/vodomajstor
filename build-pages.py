@@ -7,6 +7,7 @@ putanje ovde prepisuju u kopiji. Original ostaje netaknut.
 
 Upotreba:  python3 build-pages.py [prefiks]     (podrazumevano /vodomajstor)
 """
+import hashlib
 import pathlib
 import re
 import shutil
@@ -15,11 +16,17 @@ import sys
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "_pages"
 
+
+def stamp(rel):
+    """Kratak otisak sadrzaja fajla, za probijanje kesa posle deploya."""
+    import hashlib
+    return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+
 ASSET_DIRS = ["css", "js", "slike"]
 PAGE_DIRS = ["odgusenje-kanalizacije"]
 
 # Prekidač paleta — postoji SAMO na staging kopiji, ne u izvornom kodu.
-STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css">
+STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css?v={v}">
 <script>
   (function () {{
     var p = new URLSearchParams(location.search).get("paleta");
@@ -64,8 +71,14 @@ def build(prefix: str) -> pathlib.Path:
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)
-        html = html.replace("</head>", STAGING_HEAD.format(prefix=prefix) + "</head>")
+        html = html.replace("</head>", STAGING_HEAD.format(prefix=prefix, v=stamp("css/palete.css")) + "</head>")
         html = html.replace("<body>", "<body>\n" + SWITCH)
+
+        # GitHub Pages kesira fajlove 10 minuta. Bez ovoga se posle deploya ume
+        # ucitati nov HTML sa starim CSS-om, pa stranica izgleda razvaljeno.
+        html = html.replace("/css/style.css", "/css/style.css?v=" + stamp("css/style.css"))
+        html = html.replace("/js/site.js", "/js/site.js?v=" + stamp("js/site.js"))
+
         dst.write_text(html, encoding="utf-8")
 
     # prva stranica je ujedno i ulaz dok home ne postoji
