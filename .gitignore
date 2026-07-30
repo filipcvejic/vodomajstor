@@ -24,3 +24,13 @@ Thumbs.db
 
 # Local tooling
 .claude/settings.local.json
+
+# PRIVATNO — repo je javan, ovo NE sme na GitHub.
+# Google Ads assets, ključne reči po ad grupi, master plan, interni brief.
+docs/
+CLAUDE.md
+
+# Izvozne kopije za pregled
+preview/
+_pages/
+.claude/settings.local.json.tmp*

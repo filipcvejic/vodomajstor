@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Mesto za fotografiju">
+  <rect width="800" height="600" fill="#e3edee"/>
+  <rect x="8" y="8" width="784" height="584" fill="none" stroke="#1b626d" stroke-width="3" stroke-dasharray="14 10" opacity=".55"/>
+  <g fill="#144c55" opacity=".75">
+    <path d="M328 246h30l14-20h56l14 20h30a16 16 0 0 1 16 16v92a16 16 0 0 1-16 16H328a16 16 0 0 1-16-16v-92a16 16 0 0 1 16-16Zm72 30a46 46 0 1 0 0 92 46 46 0 0 0 0-92Zm0 22a24 24 0 1 1 0 48 24 24 0 0 1 0-48Z"/>
+  </g>
+  <text x="400" y="418" text-anchor="middle" fill="#0f3a41" font-family="system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="3">MESTO ZA FOTOGRAFIJU</text>
+  <text x="400" y="452" text-anchor="middle" fill="#4d5f61" font-family="system-ui, sans-serif" font-size="19">opis snimka je u alt tekstu i u komentaru iznad</text>
+</svg>
