@@ -39,6 +39,8 @@ SWITCH = """<nav class="paleta-switch" aria-label="Izbor palete">
   <a href="?paleta=petrol">Petrol</a>
   <a href="?paleta=teget">Teget</a>
   <a href="?paleta=grafit">Grafit</a>
+  <a href="?paleta=maslina">Maslina</a>
+  <a href="?paleta=mornarska">Mornarska</a>
 </nav>
 <script>
   (function () {{

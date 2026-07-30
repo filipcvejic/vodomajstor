@@ -38,6 +38,44 @@
   --bg-soft: #f3f5f5;
 }
 
+/* D — tamnozelena i narandžasta. Najdalje od plavog mora konkurencije,
+   narandžasta je topla i čita „radovi", ne „alarm". */
+:root[data-paleta="maslina"] {
+  --brand-900: #13251a;
+  --brand-800: #1b3323;
+  --brand-700: #24452f;
+  --brand-600: #33613f;
+  --brand-100: #e4ece6;
+
+  --accent: #f2803c;
+  --accent-hover: #d96623;
+  --accent-ink: #13251a;
+
+  --ink: #15201a;
+  --ink-muted: #4f5e54;
+  --line: #dde5df;
+  --bg-soft: #f2f6f3;
+}
+
+/* E — mornarska plava i žuta. Klasičan komunalno-servisni izgled,
+   žuta na tamnoj plavoj ima najjači kontrast od svih pet. */
+:root[data-paleta="mornarska"] {
+  --brand-900: #0a1f3d;
+  --brand-800: #102b52;
+  --brand-700: #17396b;
+  --brand-600: #22508f;
+  --brand-100: #e6ebf3;
+
+  --accent: #ffc53d;
+  --accent-hover: #eab016;
+  --accent-ink: #0a1f3d;
+
+  --ink: #111a29;
+  --ink-muted: #4c5972;
+  --line: #dce1ea;
+  --bg-soft: #f3f5f9;
+}
+
 /* Prekidač paleta — vidljiv samo na staging-u */
 .paleta-switch {
   position: fixed;
