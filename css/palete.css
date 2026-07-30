@@ -76,6 +76,14 @@
   --bg-soft: #f3f5f9;
 }
 
+/* F — petrol sa jačom narandžastom umesto mekog ambera.
+   Ista osnova, više energije. Logo je plav, pa topao akcent pravi kontrast. */
+:root[data-paleta="petrol-narandza"] {
+  --accent: #ef6c1a;
+  --accent-hover: #d15709;
+  --accent-ink: #ffffff;
+}
+
 /* Prekidač paleta — vidljiv samo na staging-u */
 .paleta-switch {
   position: fixed;

@@ -29,8 +29,15 @@ PAGE_DIRS = ["odgusenje-kanalizacije"]
 STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css?v={v}">
 <script>
   (function () {{
-    var p = new URLSearchParams(location.search).get("paleta");
+    var q = new URLSearchParams(location.search);
+    var p = q.get("paleta");
     if (p) document.documentElement.setAttribute("data-paleta", p);
+    if (q.get("hero") === "centar") {{
+      document.addEventListener("DOMContentLoaded", function () {{
+        var h = document.querySelector(".hero");
+        if (h) h.classList.add("hero--centar");
+      }});
+    }}
   }})();
 </script>
 """
@@ -41,6 +48,8 @@ SWITCH = """<nav class="paleta-switch" aria-label="Izbor palete">
   <a href="?paleta=grafit">Grafit</a>
   <a href="?paleta=maslina">Maslina</a>
   <a href="?paleta=mornarska">Mornarska</a>
+  <a href="?paleta=petrol-narandza">Narandža</a>
+  <a href="?hero=centar">Hero centar</a>
 </nav>
 <script>
   (function () {{
