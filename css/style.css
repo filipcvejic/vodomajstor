@@ -116,7 +116,7 @@ li + li { margin-top: .35em; }
 .sec--soft { background: var(--bg-soft); }
 .sec--dark { background: var(--brand-800); color: #fff; }
 .sec--dark h2, .sec--dark h3 { color: #fff; }
-.sec--dark a { color: var(--accent); }
+.sec--dark a:not(.btn) { color: var(--accent); }
 
 .sec__label {
   display: block; margin-bottom: 10px;
@@ -560,7 +560,7 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 .chips li { margin: 0; }
 .chips span {
   display: block; padding: 7px 14px;
-  background: #fff; border: 1px solid var(--line); border-radius: 100px;
+  background: #fff; border: 1px solid #c3cede; border-radius: 100px;
   font-size: .92rem; color: var(--ink-muted);
 }
 
@@ -691,7 +691,7 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 .tips { display: grid; gap: 26px 44px; }
 @media (min-width: 780px) { .tips { grid-template-columns: repeat(2, 1fr); } }
 
-.tips__item { padding-left: 20px; border-left: 2px solid var(--brand-100); }
+.tips__item { padding-left: 18px; border-left: 3px solid var(--brand-600); }
 .tips__item h3 { margin-bottom: .25em; font-size: 1.05rem; color: var(--brand-800); }
 .tips__item p { margin: 0; color: var(--ink-muted); font-size: .96rem; }
 
@@ -716,7 +716,35 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 /* --- 26. CTA na tamnoj podlozi -------------------------------------------- */
 
 .cta-strip--dark {
-  background: rgba(0, 0, 0, .22);
-  border-left-color: var(--accent);
+  padding: 24px 0 0;
+  background: none;
+  border-left: 0;
+  border-top: 1px solid rgba(255, 255, 255, .2);
 }
-.cta-strip--dark p { color: #fff; }
+.cta-strip--dark p { color: #fff; font-size: 1.05rem; }
+
+/* --- 27. Tipovi zapušenja (tri kolone) ----------------------------------- */
+
+.types { display: grid; gap: 0; }
+.types__item { padding-block: 22px; border-top: 1px solid var(--line); }
+.types__item:first-child { border-top: 0; padding-top: 0; }
+
+@media (min-width: 860px) {
+  .types { grid-template-columns: repeat(3, 1fr); gap: 0 36px; }
+  .types__item { padding-block: 0; border-top: 0; }
+  .types__item + .types__item { padding-left: 36px; border-left: 1px solid var(--line); }
+}
+
+.types__item h3 { margin-bottom: .3em; color: var(--brand-800); }
+.types__item > p { color: var(--ink-muted); font-size: .97rem; margin-bottom: 14px; }
+.types__num {
+  display: block; margin-bottom: 10px;
+  color: var(--accent-hover);
+  font-size: .78rem; font-weight: 800; letter-spacing: .12em;
+}
+
+/* Kartica opreme: dva reda umesto definicione liste */
+.kit__lines { padding: 0 20px 16px; }
+.kit__lines p { margin: 0 0 8px; font-size: .95rem; color: #c2d0e4; }
+.kit__lines p:last-child { margin-bottom: 0; }
+.kit__lines b { color: #fff; }
