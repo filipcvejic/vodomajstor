@@ -757,3 +757,10 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 .kit__lines p { margin: 0 0 8px; font-size: .95rem; color: #c2d0e4; }
 .kit__lines p:last-child { margin-bottom: 0; }
 .kit__lines b { color: #fff; }
+
+/* Čipovi na tamnoj podlozi */
+.sec--dark .chips span {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(255, 255, 255, .2);
+  color: #cbd8e9;
+}
