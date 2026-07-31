@@ -9,23 +9,24 @@
 /* --- 1. Tokeni ----------------------------------------------------------- */
 
 :root {
-  /* Osnovna paleta: petrol + amber */
-  --brand-900: #0b2b30;
-  --brand-800: #0f3a41;
-  --brand-700: #144c55;
-  --brand-600: #1b626d;
-  --brand-100: #e3edee;
+  /* Osnovna paleta: mornarska plava + žuta.
+     Prati logo, čiji raspon ide od #001356 do #32bdf6. */
+  --brand-900: #0a1f3d;
+  --brand-800: #102b52;
+  --brand-700: #17396b;
+  --brand-600: #22508f;
+  --brand-100: #e6ebf3;
 
-  --accent: #f5a524;
-  --accent-hover: #dc8b0c;
-  --accent-ink: #0b2b30;
+  --accent: #ffc53d;
+  --accent-hover: #eab016;
+  --accent-ink: #0a1f3d;
 
   /* Neutralno */
-  --ink: #0f1a1c;
-  --ink-muted: #4d5f61;
-  --line: #d9e3e4;
+  --ink: #111a29;
+  --ink-muted: #4c5972;
+  --line: #dce1ea;
   --bg: #ffffff;
-  --bg-soft: #f1f6f6;
+  --bg-soft: #f3f5f9;
 
   /* Tipografija */
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -37,7 +38,7 @@
   --sec-y: 48px;
   --r: 8px;
 
-  --shadow: 0 1px 2px rgba(15, 26, 28, .06), 0 6px 20px rgba(15, 26, 28, .08);
+  --shadow: 0 1px 2px rgba(10, 31, 61, .07), 0 6px 20px rgba(10, 31, 61, .09);
 }
 
 @media (min-width: 768px) {
@@ -127,7 +128,7 @@ li + li { margin-top: .35em; }
 
 .sec__head { max-width: 62ch; margin-bottom: 30px; }
 .sec__head p { color: var(--ink-muted); font-size: 1.04rem; }
-.sec--dark .sec__head p { color: #c6dadd; }
+.sec--dark .sec__head p { color: #c2d0e4; }
 
 .lede { font-size: 1.06rem; color: var(--ink-muted); }
 
@@ -161,8 +162,8 @@ li + li { margin-top: .35em; }
 /* --- 5. Zaglavlje -------------------------------------------------------- */
 
 .topbar {
-  background: #071e22;
-  color: #9dbcc0;
+  background: #06162b;
+  color: #9fb2cd;
   font-size: .84rem;
 }
 .topbar .wrap {
@@ -171,7 +172,7 @@ li + li { margin-top: .35em; }
   gap: 16px;
   padding-block: 7px;
 }
-.topbar a { color: #cfe2e4; text-decoration: none; font-weight: 600; }
+.topbar a { color: #cbd8e9; text-decoration: none; font-weight: 600; }
 .topbar span:last-child { display: none; }
 @media (min-width: 700px) { .topbar span:last-child { display: inline; } }
 
@@ -192,7 +193,7 @@ li + li { margin-top: .35em; }
 .brand img { height: 38px; width: auto; flex: none; }
 .brand__text { display: flex; flex-direction: column; }
 .brand strong { font-size: 1.12rem; font-weight: 800; letter-spacing: -.02em; }
-.brand__text span { font-size: .7rem; color: #9dbcc0; text-transform: uppercase; letter-spacing: .09em; }
+.brand__text span { font-size: .7rem; color: #9fb2cd; text-transform: uppercase; letter-spacing: .09em; }
 @media (min-width: 1040px) { .brand img { height: 44px; } }
 
 .nav-toggle {
@@ -221,7 +222,7 @@ li + li { margin-top: .35em; }
 .site-nav a {
   display: block; padding: 13px 2px;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
-  color: #dceaec; font-weight: 600; text-decoration: none;
+  color: #dde5f0; font-weight: 600; text-decoration: none;
 }
 .site-nav a:hover { color: #fff; }
 .site-nav a[aria-current="page"] { color: var(--accent); }
@@ -232,7 +233,7 @@ li + li { margin-top: .35em; }
   width: 100%; padding: 13px 2px;
   background: none; border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
-  color: #dceaec; font: inherit; font-weight: 600; text-align: left;
+  color: #dde5f0; font: inherit; font-weight: 600; text-align: left;
   cursor: pointer;
 }
 .sub-toggle::after {
@@ -297,7 +298,7 @@ li + li { margin-top: .35em; }
   .sub a:hover { background: rgba(255, 255, 255, .09); }
   .sub em {
     display: block; margin-top: 1px;
-    color: #93b6bb; font-style: normal; font-size: .8rem; font-weight: 400;
+    color: #8fa4c2; font-style: normal; font-size: .8rem; font-weight: 400;
   }
   .sub__group {
     padding: 10px 12px 4px;
@@ -310,43 +311,9 @@ li + li { margin-top: .35em; }
     border-radius: 5px;
   }
   .sub__cta b { display: block; font-size: .9rem; }
-  .sub__cta span { display: block; margin-bottom: 8px; color: #93b6bb; font-size: .8rem; }
+  .sub__cta span { display: block; margin-bottom: 8px; color: #8fa4c2; font-size: .8rem; }
   .sub__cta a { background: var(--accent); color: var(--accent-ink); text-align: center; }
   .sub__cta a:hover { background: var(--accent-hover); }
-}
-
-/* --- 5b. Traka koja klizi ------------------------------------------------ */
-
-.marquee {
-  overflow: hidden;
-  background: var(--brand-800);
-  border-block: 1px solid rgba(255, 255, 255, .1);
-  color: #cfe2e4;
-  font-size: .9rem; font-weight: 600;
-}
-.marquee__track {
-  display: flex; width: max-content;
-  animation: marquee 42s linear infinite;
-}
-.marquee ul {
-  display: flex; align-items: center; gap: 0;
-  margin: 0; padding: 0; list-style: none;
-}
-.marquee li {
-  margin: 0; padding: 11px 22px;
-  white-space: nowrap;
-}
-.marquee li::before {
-  content: ""; display: inline-block;
-  width: 5px; height: 5px; margin-right: 12px; vertical-align: middle;
-  border-radius: 50%; background: var(--accent);
-}
-@keyframes marquee { to { transform: translateX(-50%); } }
-
-.marquee:hover .marquee__track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .marquee { overflow-x: auto; }
-  .marquee__track { animation: none; }
 }
 
 /* --- 6. Hero ------------------------------------------------------------- */
@@ -387,7 +354,7 @@ li + li { margin-top: .35em; }
 }
 
 .hero h1 { color: #fff; font-size: clamp(2.1rem, 7.4vw, 3.1rem); }
-.hero__sub { font-size: 1.1rem; color: #cfe2e4; max-width: 40rem; }
+.hero__sub { font-size: 1.1rem; color: #cbd8e9; max-width: 40rem; }
 @media (min-width: 768px) { .hero__sub { font-size: 1.18rem; } }
 .hero .btn-row { margin-top: 28px; }
 @media (max-width: 519px) {
@@ -467,9 +434,9 @@ li + li { margin-top: .35em; }
 }
 .kit__head { padding: 16px 20px 12px; }
 .kit__head b { display: block; font-size: 1.12rem; letter-spacing: -.01em; }
-.kit__head span { color: #b9d4d7; font-size: .92rem; }
+.kit__head span { color: #aabfd9; font-size: .92rem; }
 .kit dl { display: grid; margin: 0; padding: 0 20px 16px; font-size: .95rem; }
-.kit dt { color: #8fb3b8; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; padding-top: 11px; }
+.kit dt { color: #8fa4c2; font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; padding-top: 11px; }
 .kit dd { margin: 1px 0 0; }
 @media (min-width: 620px) {
   .kit dl { grid-template-columns: 9.5rem 1fr; column-gap: 18px; }
@@ -485,7 +452,7 @@ li + li { margin-top: .35em; }
 }
 @media (min-width: 620px) { .rule { grid-template-columns: repeat(2, 1fr); gap: 10px 26px; } }
 .rule div b { display: block; color: var(--accent); font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 3px; }
-.rule div span { color: #cfe2e4; }
+.rule div span { color: #cbd8e9; }
 
 /* --- 11. Tabela ---------------------------------------------------------- */
 
@@ -598,7 +565,7 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 .band__inner { display: grid; gap: 22px; padding-block: 38px; align-items: center; }
 @media (min-width: 940px) { .band__inner { grid-template-columns: 1fr auto; padding-block: 50px; } }
 .band h2 { color: #fff; margin-bottom: .35em; }
-.band p { color: #c6dadd; max-width: 46ch; }
+.band p { color: #c2d0e4; max-width: 46ch; }
 .band__phone {
   display: block;
   color: #fff; text-decoration: none;
@@ -609,11 +576,11 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 
 /* --- 18. Podnožje -------------------------------------------------------- */
 
-.site-footer { padding-block: 40px 96px; background: var(--brand-900); color: #a9c6ca; font-size: .94rem; }
+.site-footer { padding-block: 40px 96px; background: var(--brand-900); color: #a3b5cf; font-size: .94rem; }
 @media (min-width: 940px) { .site-footer { padding-bottom: 40px; } }
 
 .site-footer h2, .site-footer h3 { color: #fff; font-size: .98rem; margin-bottom: .8em; }
-.site-footer a { color: #dceaec; text-decoration: none; }
+.site-footer a { color: #dde5f0; text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li + li { margin-top: .5em; }
@@ -639,7 +606,7 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
   display: flex; gap: 10px;
   padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(7, 30, 34, .97);
+  background: rgba(6, 22, 43, .97);
   border-top: 1px solid rgba(255, 255, 255, .12);
 }
 .call-dock .btn { flex: 1; min-height: 52px; }

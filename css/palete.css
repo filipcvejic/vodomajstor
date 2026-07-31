@@ -2,6 +2,24 @@
    Ne ide na produkciju. Osnovna paleta je u style.css.
    Aktivira se atributom data-paleta na <html>. */
 
+/* A — petrol i amber, prva varijanta. */
+:root[data-paleta="petrol"] {
+  --brand-900: #0b2b30;
+  --brand-800: #0f3a41;
+  --brand-700: #144c55;
+  --brand-600: #1b626d;
+  --brand-100: #e3edee;
+
+  --accent: #f5a524;
+  --accent-hover: #dc8b0c;
+  --accent-ink: #0b2b30;
+
+  --ink: #0f1a1c;
+  --ink-muted: #4d5f61;
+  --line: #d9e3e4;
+  --bg-soft: #f1f6f6;
+}
+
 /* B — teget i crvena. Klasičan servisni izgled, crvena čita „hitno". */
 :root[data-paleta="teget"] {
   --brand-900: #0a1c33;
