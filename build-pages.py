@@ -23,7 +23,7 @@ def stamp(rel):
     return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 ASSET_DIRS = ["css", "js", "slike"]
-PAGE_DIRS = ["odgusenje-kanalizacije"]
+PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije"]
 
 # Prekidač paleta — postoji SAMO na staging kopiji, ne u izvornom kodu.
 STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css?v={v}">
@@ -92,10 +92,14 @@ def build(prefix: str) -> pathlib.Path:
 
         dst.write_text(html, encoding="utf-8")
 
-    # prva stranica je ujedno i ulaz dok home ne postoji
+    # spisak gotovih stranica dok home ne postoji
+    veze = "\n".join(
+        f'<li><a href="{prefix}/{d}/">/{d}/</a></li>' for d in PAGE_DIRS
+    )
     (OUT / "index.html").write_text(
-        f'<meta http-equiv="refresh" content="0; url={prefix}/odgusenje-kanalizacije/">\n'
-        f'<p><a href="{prefix}/odgusenje-kanalizacije/">Odgušenje kanalizacije</a></p>\n',
+        "<title>VodoMajstor Beograd — pregled</title>"
+        "<style>body{font:16px/1.6 system-ui;margin:40px;max-width:40rem}</style>"
+        f"<h1>Gotove stranice</h1><ul>{veze}</ul>",
         encoding="utf-8",
     )
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
