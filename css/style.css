@@ -360,6 +360,25 @@ li + li { margin-top: .35em; }
 }
 
 .hero h1 { color: #fff; font-size: clamp(2.1rem, 7.4vw, 3.1rem); }
+
+/* Oznaka dostupnosti u herou. Nosi podatak kog nema u H1, zato sme da stoji. */
+.hero__status {
+  display: inline-flex; align-items: center; gap: 9px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+  padding: 7px 15px 7px 12px;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 100px;
+  color: #fff; font-size: .88rem; font-weight: 700;
+}
+.hero__status::before {
+  content: ""; flex: none;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 197, 61, .22);
+}
+.hero--centar .hero__status { align-self: center; }
 .hero__sub { font-size: 1.1rem; color: #cbd8e9; max-width: 40rem; }
 @media (min-width: 768px) { .hero__sub { font-size: 1.18rem; } }
 .hero .btn-row { margin-top: 28px; }
