@@ -115,6 +115,12 @@ li + li { margin-top: .35em; }
 .sec { padding-block: var(--sec-y); }
 .sec--soft { background: var(--bg-soft); }
 .sec--dark { background: var(--brand-800); color: #fff; }
+
+/* Kompaktna tamna traka: zadržava predah u ritmu, ali sa manje tamne mase
+   nego puna sekcija. Za kratke sekcije poput pokrivenosti. */
+.sec--traka { padding-block: calc(var(--sec-y) * .58); }
+.sec--traka .sec__head { margin-bottom: 20px; }
+.sec--traka h2 { font-size: clamp(1.28rem, 2.6vw, 1.6rem); }
 .sec--dark h2, .sec--dark h3 { color: #fff; }
 .sec--dark a:not(.btn) { color: var(--accent); }
 
