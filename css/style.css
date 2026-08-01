@@ -597,7 +597,12 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 
 /* --- 18. Podnožje -------------------------------------------------------- */
 
-.site-footer { padding-block: 40px 96px; background: var(--brand-900); color: #a3b5cf; font-size: .94rem; }
+.site-footer {
+  padding-block: 40px 96px;
+  background: var(--brand-900);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  color: #a3b5cf; font-size: .94rem;
+}
 @media (min-width: 940px) { .site-footer { padding-bottom: 40px; } }
 
 .site-footer h2, .site-footer h3 { color: #fff; font-size: .98rem; margin-bottom: .8em; }
@@ -724,11 +729,22 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 
 /* --- 25. FAQ u dve kolone ------------------------------------------------- */
 
-.faq-grid { display: grid; gap: 30px; align-items: start; }
-@media (min-width: 900px) { .faq-grid { grid-template-columns: 20rem 1fr; gap: 52px; } }
+/* Telefon: naslov, pitanja, pa kartica. Desktop: naslov i kartica levo, pitanja desno.
+   DOM redosled ostaje isti na oba, raspored menja samo grid. */
+.faq-grid { display: grid; gap: 24px; align-items: start; }
+.faq-grid > .sec__head { margin-bottom: 0; }
 
-.faq-aside { position: sticky; top: 90px; }
-.faq-aside .sec__head { margin-bottom: 20px; }
+@media (min-width: 900px) {
+  .faq-grid {
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas: "naslov pitanja" "kartica pitanja";
+    gap: 22px 52px;
+    align-content: start;
+  }
+  .faq-grid > .sec__head { grid-area: naslov; }
+  .faq-grid > .faq { grid-area: pitanja; }
+  .faq-grid > .faq-card { grid-area: kartica; position: sticky; top: 90px; }
+}
 .faq-card {
   padding: 20px;
   background: var(--brand-900);
