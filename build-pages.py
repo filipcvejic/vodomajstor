@@ -37,6 +37,11 @@ def build(prefix: str) -> pathlib.Path:
             shutil.copytree(src, OUT / d)
 
     def obradi(html: str) -> str:
+        # HTML komentari ne idu u promet: interne beleške i sklonjena galerija
+        # nemaju šta da traže u izvoru koji korisnik može da otvori
+        html = re.sub(r"<!--(?!\[if).*?-->", "", html, flags=re.S)
+        html = re.sub(r"\n{3,}", "\n\n", html)
+
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)

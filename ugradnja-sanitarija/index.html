@@ -84,12 +84,11 @@
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero__media" aria-hidden="true">
-      <!-- FOTO BRIEF: majstor postavlja tuš kabinu ili WC šolju u sređenom kupatilu, uredan radni prostor |
-           pejzaž, širok kadar, mesta sa leve strane za tekst | pozadina heroja, biće zatamnjena -->
-      <img src="/slike/_placeholder.svg"
-           data-foto="sanitarije-hero-montaza"
-           alt="Ugradnja sanitarija u kupatilu u Beogradu"
-           width="1600" height="900" fetchpriority="high" decoding="async">
+      <img src="/slike/sanitarije-hero-montaza.webp"
+           srcset="/slike/sanitarije-hero-montaza-800.webp 800w, /slike/sanitarije-hero-montaza.webp 1600w"
+           sizes="100vw"
+           alt="Ugradnja sanitarija u kupatilu u Beogradu" width="1600" height="900"
+           fetchpriority="high" decoding="async">
     </div>
 
     <div class="wrap">
@@ -175,12 +174,11 @@
     <div class="wrap">
       <div class="split">
         <div class="split__media">
-          <!-- FOTO BRIEF: sečenje stare kade na licu mesta, vidi se alat i zaštićen prostor |
-               pejzaž | uz sekciju o sečenju kade -->
-          <img src="/slike/_placeholder.svg"
-               data-foto="sanitarije-secenje-kade"
-               alt="Sečenje stare kade pri zameni u stanu u Beogradu"
-               width="800" height="600" loading="lazy" decoding="async">
+          <img src="/slike/sanitarije-secenje-kade.webp"
+               srcset="/slike/sanitarije-secenje-kade-500.webp 500w, /slike/sanitarije-secenje-kade.webp 800w"
+               sizes="(min-width: 940px) 50vw, 100vw"
+               alt="Sečenje stare kade pri zameni u stanu u Beogradu" width="800" height="600"
+               loading="lazy" decoding="async">
         </div>
 
         <div>
@@ -339,7 +337,9 @@
     </div>
   </section>
 
-  <!-- ===== Sa terena ===== -->
+  <!-- Galerija je privremeno sklonjena dok ne stignu fotografije sa terena.
+     Vraća se brisanjem ovog komentara.
+<!- - ===== Sa terena ===== - ->
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
@@ -351,8 +351,6 @@
       <ul class="gallery" data-gallery>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: zaštićen prostor pre montaže">
-            <!-- FOTO BRIEF: kupatilo pripremljeno pre rada, zaštita na podu, alat uredno postavljen |
-                 kvadrat ili pejzaž | traka „sa terena" -->
             <img src="/slike/_placeholder.svg" data-foto="sanitarije-priprema-prostora"
                  alt="Zaštićeno kupatilo pripremljeno pre montaže sanitarije"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -360,7 +358,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: sečenje stare kade">
-            <!-- FOTO BRIEF: stara kada isečena na delove, spremna za iznošenje | kvadrat ili pejzaž | traka „sa terena" -->
             <img src="/slike/_placeholder.svg" data-foto="sanitarije-kada-u-delovima"
                  alt="Stara kada isečena na delove pre iznošenja"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -368,7 +365,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: montaža tuš kabine">
-            <!-- FOTO BRIEF: montaža tuš kabine ili WC šolje u toku, ruke i alat | kvadrat ili pejzaž | traka „sa terena" -->
             <img src="/slike/_placeholder.svg" data-foto="sanitarije-montaza-tus-kabine"
                  alt="Montaža tuš kabine u kupatilu u Beogradu"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -376,8 +372,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: kupatilo posle montaže">
-            <!-- FOTO BRIEF: gotov posao, nova sanitarija na mestu, prostor čist i bez alata.
-                 Idealno isti kadar kao „pre" | kvadrat ili pejzaž | traka „sa terena", najvredniji snimak -->
             <img src="/slike/_placeholder.svg" data-foto="sanitarije-posle-montaze"
                  alt="Kupatilo posle ugradnje nove sanitarije, čisto i pospremljeno"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -386,6 +380,7 @@
       </ul>
     </div>
   </section>
+-->
 
   <!-- ===== FAQ ===== -->
   <section class="sec sec--soft">

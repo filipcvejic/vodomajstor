@@ -84,13 +84,11 @@
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero__media" aria-hidden="true">
-      <!-- FOTO BRIEF: majstor u radnom odelu sa alatom, u kupatilu ili pored kombija, gleda u kameru ili radi |
-           pejzaž, širok kadar, mesta sa leve strane za tekst | pozadina heroja, biće zatamnjena.
-           Ovo je najvažnija slika na sajtu, jer je prvo što vidi najveći deo saobraćaja. -->
-      <img src="/slike/_placeholder.svg"
-           data-foto="home-hero-majstor"
-           alt="Vodoinstalater u Beogradu na intervenciji"
-           width="1600" height="900" fetchpriority="high" decoding="async">
+      <img src="/slike/home-hero-majstor.webp"
+           srcset="/slike/home-hero-majstor-800.webp 800w, /slike/home-hero-majstor.webp 1600w"
+           sizes="100vw"
+           alt="Vodoinstalater u Beogradu na intervenciji" width="1600" height="900"
+           fetchpriority="high" decoding="async">
     </div>
 
     <div class="wrap">
@@ -148,12 +146,11 @@
     <div class="wrap">
       <div class="split">
         <div class="split__media">
-          <!-- FOTO BRIEF: kombi sa opremom otvoren, vidi se alat i mašine, ili majstor sa opremom u haustoru |
-               pejzaž | uz sekciju o tome zašto jedan majstor za sve -->
-          <img src="/slike/_placeholder.svg"
-               data-foto="home-oprema-kombi"
-               alt="Oprema vodoinstalatera za izlazak na teren u Beogradu"
-               width="800" height="600" loading="lazy" decoding="async">
+          <img src="/slike/home-oprema-kombi.webp"
+               srcset="/slike/home-oprema-kombi-500.webp 500w, /slike/home-oprema-kombi.webp 800w"
+               sizes="(min-width: 940px) 50vw, 100vw"
+               alt="Oprema vodoinstalatera za izlazak na teren u Beogradu" width="800" height="600"
+               loading="lazy" decoding="async">
         </div>
 
         <div>
@@ -259,7 +256,9 @@
     </div>
   </section>
 
-  <!-- ===== Sa terena ===== -->
+  <!-- Galerija je privremeno sklonjena dok ne stignu fotografije sa terena.
+     Vraća se brisanjem ovog komentara.
+<!- - ===== Sa terena ===== - ->
   <section class="sec">
     <div class="wrap">
       <div class="sec__head">
@@ -271,7 +270,6 @@
       <ul class="gallery" data-gallery>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: mašinsko odgušenje">
-            <!-- FOTO BRIEF: WOMA oprema u radu | kvadrat ili pejzaž | traka „sa terena", najbolja slika sa odgušenja -->
             <img src="/slike/_placeholder.svg" data-foto="home-odgusenje"
                  alt="Mašinsko odgušenje kanalizacije u Beogradu"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -279,7 +277,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: nov razvod cevi">
-            <!-- FOTO BRIEF: nove cevi u trasi pre zatvaranja | kvadrat ili pejzaž | najbolja slika sa instalacija -->
             <img src="/slike/_placeholder.svg" data-foto="home-instalacije"
                  alt="Nov razvod vodovodnih cevi u kupatilu"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -287,7 +284,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: montaža sanitarije">
-            <!-- FOTO BRIEF: montaža tuš kabine ili kade | kvadrat ili pejzaž | najbolja slika sa sanitarija -->
             <img src="/slike/_placeholder.svg" data-foto="home-sanitarije"
                  alt="Montaža tuš kabine u kupatilu u Beogradu"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -295,7 +291,6 @@
         </li>
         <li>
           <button type="button" aria-label="Uvećaj fotografiju: gotovo kupatilo">
-            <!-- FOTO BRIEF: gotovo renovirano kupatilo | kvadrat ili pejzaž | najbolja slika sa adaptacije -->
             <img src="/slike/_placeholder.svg" data-foto="home-adaptacija"
                  alt="Gotovo kupatilo posle kompletne adaptacije"
                  width="600" height="450" loading="lazy" decoding="async">
@@ -304,6 +299,7 @@
       </ul>
     </div>
   </section>
+-->
 
   <!-- ===== Kad koga zvati ===== -->
   <section class="sec sec--soft" id="sta-mi-treba">
