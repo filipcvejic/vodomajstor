@@ -685,6 +685,17 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
   font-size: .82rem; font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
+/* Varijanta bez brojeva: kad blok nije redosled nego spisak.
+   Sprečava da se dva numerisana niza nađu jedan ispod drugog. */
+.signs--lista { counter-reset: none; }
+.signs--lista li { counter-increment: none; }
+.signs--lista li::before {
+  content: "";
+  width: 11px; height: 11px; margin-top: .42em;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
 .signs b { display: block; }
 .signs span { color: var(--ink-muted); font-size: .91rem; }
 
