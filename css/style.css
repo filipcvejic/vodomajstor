@@ -693,7 +693,7 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
   content: "";
   width: 11px; height: 11px; margin-top: .42em;
   border-radius: 2px;
-  background: var(--accent);
+  background: var(--brand-600);
 }
 
 .signs b { display: block; }
