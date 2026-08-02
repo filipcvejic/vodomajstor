@@ -39,6 +39,19 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
+# Ista stranica ne sme da postoji na dve adrese. /index.html vodi na /.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:strana/index.html"
+  to = "/:strana/"
+  status = 301
+  force = true
+
 # Stare adrese sa starog sajta vode na nove, da se ne gubi ono što je indeksirano.
 [[redirects]]
   from = "/usluge/odgusenje-kanalizacije/*"
