@@ -22,6 +22,8 @@ def stamp(rel):
     import hashlib
     return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
+DOMEN = "https://vodomajstor-beograd.rs"
+
 ASSET_DIRS = ["css", "js", "slike", "video"]
 PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije", "detekcija-curenja-vode", "ugradnja-sanitarija", "vodovodne-instalacije", "adaptacija-kupatila", "sitne-popravke", "kontakt", "hvala"]
 
@@ -35,6 +37,13 @@ def build(prefix: str) -> pathlib.Path:
         src = ROOT / d
         if src.exists():
             shutil.copytree(src, OUT / d)
+
+    # interni komentari iz CSS-a i JS-a nemaju šta da traže u izvoru koji je javan
+    for f in list((OUT / "css").glob("*.css")) + list((OUT / "js").glob("*.js")):
+        k = f.read_text(encoding="utf-8")
+        k = re.sub(r"/\*.*?\*/", "", k, flags=re.S)
+        k = re.sub(r"^\s*//.*$", "", k, flags=re.M)
+        f.write_text(re.sub(r"\n{3,}", "\n\n", k).strip() + "\n", encoding="utf-8")
 
     def obradi(html: str) -> str:
         # HTML komentari ne idu u promet: interne beleške i sklonjena galerija
@@ -69,13 +78,31 @@ def build(prefix: str) -> pathlib.Path:
         (OUT / "index.html").write_text(
             obradi(home.read_text(encoding="utf-8")), encoding="utf-8"
         )
+    # sitemap i robots idu samo na pravi domen, ne na staging
+    if not prefix:
+        adrese = ["/"] + [f"/{d}/" for d in PAGE_DIRS if d != "hvala"]
+        stavke = "\n".join(
+            f"  <url><loc>{DOMEN}{a}</loc><changefreq>monthly</changefreq>"
+            f"<priority>{'1.0' if a == '/' else '0.8'}</priority></url>"
+            for a in adrese
+        )
+        (OUT / "sitemap.xml").write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{stavke}\n</urlset>\n", encoding="utf-8")
+        (OUT / "robots.txt").write_text(
+            "User-agent: *\n"
+            "Allow: /\n"
+            "Disallow: /hvala/\n\n"
+            f"Sitemap: {DOMEN}/sitemap.xml\n", encoding="utf-8")
+
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
     return OUT
 
 
 if __name__ == "__main__":
-    prefix = sys.argv[1] if len(sys.argv) > 1 else "/vodomajstor"
+    prefix = sys.argv[1] if len(sys.argv) > 1 else ""
     out = build(prefix)
     files = sorted(p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file())
     print(f"{out}  ({len(files)} fajlova)")
