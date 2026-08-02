@@ -94,6 +94,11 @@
             <h3>Telefon</h3>
             <a class="kontakt-tel" href="tel:+381658349422">065 8349422</a>
             <p>Hitne intervencije 0&ndash;24, i noću i vikendom. Planski poslovi po dogovoru.</p>
+            <p style="margin-top:10px">
+              Isti broj je i na <a href="viber://chat?number=%2B381658349422">Viberu</a> i na
+              <a href="https://wa.me/381658349422">WhatsApp-u</a>. Slika kvara nam često kaže
+              više nego opis, pa možemo da ponesemo pravi deo.
+            </p>
           </div>
 
           <div class="kontakt-blok">
@@ -119,20 +124,20 @@
           </p>
 
           <h2>Pošaljite upit</h2>
-          <p>Tri polja, ništa više. Javljamo se telefonom.</p>
+          <p>Tri polja, ništa više. Javljamo se telefonom čim vidimo poruku. <strong>Ako je hitno i voda ističe, pozovite umesto da pišete</strong>, telefon je brži.</p>
 
           <label class="polje">
-            <span>Ime</span>
+            <span>Ime <em style="font-weight:400;color:var(--ink-muted)">(obavezno)</em></span>
             <input type="text" name="ime" required autocomplete="name">
           </label>
 
           <label class="polje">
-            <span>Telefon</span>
+            <span>Telefon <em style="font-weight:400;color:var(--ink-muted)">(obavezno)</em></span>
             <input type="tel" name="telefon" required autocomplete="tel" inputmode="tel">
           </label>
 
           <label class="polje">
-            <span>Šta se dešava</span>
+            <span>Šta se dešava <em style="font-weight:400;color:var(--ink-muted)">(obavezno)</em></span>
             <textarea name="poruka" required placeholder="Npr. voda ne otiče iz sudopere, počelo juče, Novi Beograd, treći sprat."></textarea>
           </label>
 
@@ -147,8 +152,8 @@
     <div class="wrap">
       <div class="band__inner">
         <div>
-          <h2>Ne čeka se odgovor na upit</h2>
-          <p>Ako je hitno, zovite. Telefon je najbrži put, pogotovo kad voda ističe.</p>
+          <h2>Radije biste da pozovete?</h2>
+          <p>Recite šta se dešava i gde ste, pa vam kažemo šta treba i za koliko možemo da izađemo.</p>
         </div>
         <a class="band__phone" href="tel:+381658349422">065 8349422</a>
       </div>
@@ -212,6 +217,31 @@
 </div>
 
 <script src="/js/site.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://vodomajstor-beograd.rs/kontakt/",
+  "name": "Kontakt — VodoMajstor Beograd",
+  "mainEntity": {
+    "@type": "Plumber",
+    "@id": "https://vodomajstor-beograd.rs/#biznis",
+    "name": "VodoMajstor Beograd",
+    "url": "https://vodomajstor-beograd.rs/",
+    "telephone": "+381658349422",
+    "areaServed": { "@type": "City", "name": "Beograd" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Beograd", "addressCountry": "RS" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+381658349422",
+      "contactType": "customer service",
+      "areaServed": "RS",
+      "availableLanguage": "Serbian"
+    }
+  }
+}
+</script>
 
 </body>
 </html>
