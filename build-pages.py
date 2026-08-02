@@ -45,6 +45,10 @@ def build(prefix: str) -> pathlib.Path:
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)
+        # srcset nosi više URL-ova u jednom atributu, pa ga gornji izraz ne hvata
+        html = re.sub(r'(srcset=")([^"]*)"',
+                      lambda m: m.group(1) + m.group(2).replace("/slike/", prefix + "/slike/") + '"',
+                      html)
 
         # GitHub Pages kesira fajlove 10 minuta. Bez ovoga se posle deploya ume
         # ucitati nov HTML sa starim CSS-om, pa stranica izgleda razvaljeno.
