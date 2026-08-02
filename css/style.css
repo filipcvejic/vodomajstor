@@ -877,3 +877,22 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
    da beli sadržaj ne naleže odmah na tamno zaglavlje. */
 .sec--vrh { padding-top: calc(var(--sec-y) + 22px); }
 .sec--vrh h1 { margin-bottom: .35em; }
+
+/* --- 29. Video sa terena ------------------------------------------------- */
+
+.video-blok { display: flex; justify-content: center; }
+.video-blok video {
+  display: block;
+  width: auto; max-width: 100%;
+  max-height: 460px;
+  border-radius: var(--r);
+  background: #0a1f3d;
+}
+@media (max-width: 620px) { .video-blok video { max-height: 380px; } }
+
+.video-nota {
+  margin-top: 10px;
+  color: #aabfd9;
+  font-size: .86rem;
+  text-align: center;
+}

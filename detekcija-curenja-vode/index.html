@@ -174,11 +174,14 @@
     <div class="wrap">
       <div class="split">
         <div class="split__media">
-          <img src="/slike/detekcija-kamera-u-cevi.webp"
-               srcset="/slike/detekcija-kamera-u-cevi-500.webp 500w, /slike/detekcija-kamera-u-cevi.webp 800w"
-               sizes="(min-width: 940px) 50vw, 100vw"
-               alt="Snimanje vodovodnih cevi kamerom u Beogradu" width="800" height="600"
-               loading="lazy" decoding="async">
+          <div class="video-blok">
+            <video src="/video/detekcija-termalna-kamera.mp4"
+                   poster="/slike/detekcija-termalna-kamera-poster.webp"
+                   width="450" height="800"
+                   autoplay muted loop playsinline preload="metadata"
+                   aria-label="Termovizijska kamera pokazuje toplu liniju cevi u zidu kupatila"></video>
+          </div>
+          <p class="video-nota">Snimak sa terena: topla linija na zidu pokazuje kuda ide cev.</p>
         </div>
 
         <div>
