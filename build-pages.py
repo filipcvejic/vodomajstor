@@ -23,7 +23,7 @@ def stamp(rel):
     return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 ASSET_DIRS = ["css", "js", "slike"]
-PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije"]
+PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije", "detekcija-curenja-vode"]
 
 # Prekidač paleta — postoji SAMO na staging kopiji, ne u izvornom kodu.
 STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css?v={v}">
