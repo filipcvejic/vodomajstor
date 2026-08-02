@@ -872,3 +872,8 @@ tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background: var(--bg-
 .polje textarea { min-height: 110px; resize: vertical; }
 .forma .btn { width: 100%; }
 .forma__nota { margin-top: 12px; color: var(--ink-muted); font-size: .87rem; }
+
+/* Stranice bez heroja (kontakt, zahvalnica): više vazduha na vrhu,
+   da beli sadržaj ne naleže odmah na tamno zaglavlje. */
+.sec--vrh { padding-top: calc(var(--sec-y) + 22px); }
+.sec--vrh h1 { margin-bottom: .35em; }
