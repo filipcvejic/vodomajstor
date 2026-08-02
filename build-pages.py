@@ -36,14 +36,7 @@ def build(prefix: str) -> pathlib.Path:
         if src.exists():
             shutil.copytree(src, OUT / d)
 
-    for d in PAGE_DIRS:
-        src = ROOT / d / "index.html"
-        if not src.exists():
-            continue
-        dst = OUT / d / "index.html"
-        dst.parent.mkdir(parents=True, exist_ok=True)
-
-        html = src.read_text(encoding="utf-8")
+    def obradi(html: str) -> str:
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)
@@ -51,20 +44,22 @@ def build(prefix: str) -> pathlib.Path:
         # GitHub Pages kesira fajlove 10 minuta. Bez ovoga se posle deploya ume
         # ucitati nov HTML sa starim CSS-om, pa stranica izgleda razvaljeno.
         html = html.replace("/css/style.css", "/css/style.css?v=" + stamp("css/style.css"))
-        html = html.replace("/js/site.js", "/js/site.js?v=" + stamp("js/site.js"))
+        return html.replace("/js/site.js", "/js/site.js?v=" + stamp("js/site.js"))
 
-        dst.write_text(html, encoding="utf-8")
+    for d in PAGE_DIRS:
+        src = ROOT / d / "index.html"
+        if not src.exists():
+            continue
+        dst = OUT / d / "index.html"
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_text(obradi(src.read_text(encoding="utf-8")), encoding="utf-8")
 
-    # spisak gotovih stranica dok home ne postoji
-    veze = "\n".join(
-        f'<li><a href="{prefix}/{d}/">/{d}/</a></li>' for d in PAGE_DIRS
-    )
-    (OUT / "index.html").write_text(
-        "<title>VodoMajstor Beograd — pregled</title>"
-        "<style>body{font:16px/1.6 system-ui;margin:40px;max-width:40rem}</style>"
-        f"<h1>Gotove stranice</h1><ul>{veze}</ul>",
-        encoding="utf-8",
-    )
+    # home ide u koren, kroz istu obradu
+    home = ROOT / "index.html"
+    if home.exists():
+        (OUT / "index.html").write_text(
+            obradi(home.read_text(encoding="utf-8")), encoding="utf-8"
+        )
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
     return OUT
