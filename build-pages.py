@@ -72,12 +72,11 @@ def build(prefix: str) -> pathlib.Path:
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(obradi(src.read_text(encoding="utf-8")), encoding="utf-8")
 
-    # home ide u koren, kroz istu obradu
-    home = ROOT / "index.html"
-    if home.exists():
-        (OUT / "index.html").write_text(
-            obradi(home.read_text(encoding="utf-8")), encoding="utf-8"
-        )
+    # home i 404 su u korenu, idu kroz istu obradu
+    for ime in ("index.html", "404.html"):
+        src = ROOT / ime
+        if src.exists():
+            (OUT / ime).write_text(obradi(src.read_text(encoding="utf-8")), encoding="utf-8")
     # sitemap i robots idu samo na pravi domen, ne na staging
     if not prefix:
         adrese = ["/"] + [f"/{d}/" for d in PAGE_DIRS if d != "hvala"]
