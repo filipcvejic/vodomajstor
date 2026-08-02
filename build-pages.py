@@ -25,41 +25,6 @@ def stamp(rel):
 ASSET_DIRS = ["css", "js", "slike"]
 PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije", "detekcija-curenja-vode"]
 
-# Prekidač paleta — postoji SAMO na staging kopiji, ne u izvornom kodu.
-STAGING_HEAD = """<link rel="stylesheet" href="{prefix}/css/palete.css?v={v}">
-<script>
-  (function () {{
-    var q = new URLSearchParams(location.search);
-    var p = q.get("paleta");
-    if (p) document.documentElement.setAttribute("data-paleta", p);
-    if (q.get("hero") === "centar") {{
-      document.addEventListener("DOMContentLoaded", function () {{
-        var h = document.querySelector(".hero");
-        if (h) h.classList.add("hero--centar");
-      }});
-    }}
-  }})();
-</script>
-"""
-
-SWITCH = """<nav class="paleta-switch" aria-label="Izbor palete">
-  <a href="?paleta=petrol">Petrol</a>
-  <a href="?paleta=teget">Teget</a>
-  <a href="?paleta=grafit">Grafit</a>
-  <a href="?paleta=maslina">Maslina</a>
-  <a href="?paleta=mornarska">Mornarska</a>
-  <a href="?paleta=petrol-narandza">Narandža</a>
-  <a href="?hero=centar">Hero centar</a>
-</nav>
-<script>
-  (function () {{
-    var p = new URLSearchParams(location.search).get("paleta") || "petrol";
-    var a = document.querySelector('.paleta-switch a[href="?paleta=' + p + '"]');
-    if (a) a.setAttribute("data-active", "");
-  }})();
-</script>
-""".replace("{{", "{").replace("}}", "}")
-
 
 def build(prefix: str) -> pathlib.Path:
     if OUT.exists():
@@ -82,8 +47,6 @@ def build(prefix: str) -> pathlib.Path:
         # apsolutne putanje ka fajlovima i stranicama dobijaju prefiks;
         # canonical, og:url i schema (puni URL-ovi) se ne diraju
         html = re.sub(r'((?:href|src)=")/(?!/)', r"\1" + prefix + "/", html)
-        html = html.replace("</head>", STAGING_HEAD.format(prefix=prefix, v=stamp("css/palete.css")) + "</head>")
-        html = html.replace("<body>", "<body>\n" + SWITCH)
 
         # GitHub Pages kesira fajlove 10 minuta. Bez ovoga se posle deploya ume
         # ucitati nov HTML sa starim CSS-om, pa stranica izgleda razvaljeno.

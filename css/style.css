@@ -3,7 +3,7 @@
    Jedan fajl za ceo sajt. Mobile-first. Bez eksternih fontova i biblioteka.
 
    Boje su semantički tokeni (--brand-*, --accent-*), pa se paleta menja
-   na jednom mestu. Alternative su u css/palete.css (samo za pregled).
+   na jednom mestu. Izabrana paleta: mornarska plava + žuta, prati logo.
    ========================================================================== */
 
 /* --- 1. Tokeni ----------------------------------------------------------- */
@@ -352,12 +352,6 @@ li + li { margin-top: .35em; }
   .hero__inner { min-height: 66svh; padding-block: 104px 96px; }
 }
 
-/* Varijanta sa centriranim herojem, za poređenje */
-.hero--centar .hero__inner { max-width: 52rem; margin-inline: auto; text-align: center; align-items: center; }
-.hero--centar .hero__sub { margin-inline: auto; }
-.hero--centar .hero__media::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, .3) 0%, var(--brand-900) 96%);
-}
 
 .hero h1 { color: #fff; font-size: clamp(2.1rem, 7.4vw, 3.1rem); }
 
@@ -378,7 +372,6 @@ li + li { margin-top: .35em; }
   background: var(--accent);
   box-shadow: 0 0 0 4px rgba(255, 197, 61, .22);
 }
-.hero--centar .hero__status { align-self: center; }
 .hero__sub { font-size: 1.1rem; color: #cbd8e9; max-width: 40rem; }
 @media (min-width: 768px) { .hero__sub { font-size: 1.18rem; } }
 .hero .btn-row { margin-top: 28px; }
