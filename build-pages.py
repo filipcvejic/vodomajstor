@@ -23,7 +23,7 @@ def stamp(rel):
     return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 ASSET_DIRS = ["css", "js", "slike"]
-PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije", "detekcija-curenja-vode", "ugradnja-sanitarija", "vodovodne-instalacije", "adaptacija-kupatila", "sitne-popravke"]
+PAGE_DIRS = ["odgusenje-kanalizacije", "hitne-intervencije", "detekcija-curenja-vode", "ugradnja-sanitarija", "vodovodne-instalacije", "adaptacija-kupatila", "sitne-popravke", "kontakt", "hvala"]
 
 
 def build(prefix: str) -> pathlib.Path:
